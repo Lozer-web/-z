@@ -8,7 +8,7 @@ int main()
 
 	int choose = 0, choose1 = 0, choose2 = 0, choose3 = 0, choose4 = 0, choose5 = 0;
 	int apple = 0, orange = 0, apricos = 0, pear = 0, tomato = 0, onion = 0, cucumber = 0, garlic = 0, parsley = 0, boya = 0;
-	double summa = apple + orange + apricos + pear + tomato + onion + cucumber + garlic + parsley;
+	int boyaban = 0;
 	double skidka;
 
 	while (true)
@@ -106,7 +106,18 @@ int main()
 				std::cout << "Корзина обновлена! Литров: " << pear << " л.\n";
 				Sleep(3000);
 			}
-
+			if (apple > 0 || orange > 0 || apricos > 0 || pear > 0)
+			{
+				boyaban = 1;
+				if (boya > 0)
+				{
+					system("cls");
+					boya = 0;
+					std::cout << "Прошу внимание! Ваша покупка настойки боярышника аннулирована из вашей корзины из за покупки фруктового сока!!!\n";
+					std::cout << "Теперь вы не можете купить настойку боярышника!!!!! ";
+					Sleep(6500);
+				}
+			}
 		}
 		
 		else if (choose == 2)
@@ -213,7 +224,7 @@ int main()
 
 		else if (choose == 4)
 		{
-			if (totalfrukt >= 0)
+			if (totalfrukt > 0)
 			{
 				system("cls");
 				std::cout << "Блокировка, вы уже купили фруктовый сок, а эти миксы запрещены!!!!!";
@@ -280,7 +291,7 @@ int main()
 				parsleyprice -= parsleysale;
 				std::cout << "Введена скидка на петрушевый чай, ваша цена:" << parsleyprice << "руб\n";
 			}
-			double summa = (apple * 100) + (orange * 120) + (apricos * 90) + (pear * 67) + (tomato * 130) + onionprice + (cucumber * 150) + (garlic * 80) + parsleyprice;
+			double summa = (apple * 100) + (orange * 120) + (apricos * 90) + (pear * 67) + (tomato * 130) + onionprice + (cucumber * 150) + (garlic * 80) + parsleyprice + (boya * 100);
 			if (summa >= 2500)
 			{
 				double skidka = summa * 0.13;
